@@ -313,6 +313,12 @@ export class UI {
 								this.$scoreboard.hide();
 								break; // Close chat and/or dash view if open
 							case 'cycle':
+								/* Check if Dash view is open and close it
+								 * before selecting next ability
+								 */
+								if (this.dashopen) {
+									this.closeDash();
+								}
 								this.selectNextAbility();
 								break;
 							case 'attack':
